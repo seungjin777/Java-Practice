@@ -68,7 +68,7 @@ public class GraphicEditor {
 	
 	void deleteGraphic() { //삭제
 		int n;
-		Shape firP, nexP, tmpP = null;
+		Shape firP, tmpP = null;
 		System.out.print("delete index >> ");
 		n = scanner.nextInt();
 		
@@ -82,14 +82,14 @@ public class GraphicEditor {
 		}
 		
 		for(int i=1; i<n; i++) {
-			if(firP.getNext() == null) {
-				System.out.println("do not delete"); return;
-			}
 			tmpP = firP;
 			firP = firP.getNext(); 
+			if(firP == null) {
+				System.out.println("do not delete"); return;
+			}
 		}
 	
-		tmpP.setNext(firP);	 //----------이부분 수정 필요-------/
+		tmpP.setNext(firP.getNext());	 //----------이부분 수정 필요-------/
 	}
 	
 	void seeAll() {
